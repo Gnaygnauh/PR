@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.SetRoleMapper">
+	<resultMap type="com.model.User" id="su">
+		<result property="uId" column="uid" />
+		<result property="uName" column="uname" />
+		<result property="uPwd" column="upwd" />
+		<result property="uTel" column="utel" />
+		<result property="rId" column="rr" />
+		<result property="rName" column="rname" />
+	</resultMap>
+
+	<select id="selectUsers" resultMap="su">
+		SELECT
+		uid,uname,upwd,utel,user.rid as rr,rname
+		FROM `user`
+		INNER JOIN role
+		ON
+		user.rid=role.rid
+		where user.rid!=1
+	</select>
+	<select id="selectRoles" resultType="com.model.Role">
+		SELECT rid,rname
+		FROM role
+		where rid!=1
+	</select>
+
+	<update id="updateRoleByUid">
+		
+			UPDATE `user`
+			set rid=#{rid}
+			<where>
+			<foreach collection="uids" item="uid" separator="or">
+				uid=#{uid}
+				</foreach>
+			</where>
+		
+	</update>
+
+</mapper>
