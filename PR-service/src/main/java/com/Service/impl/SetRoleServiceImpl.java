@@ -50,7 +50,7 @@ import com.model.User;
  * @Date 2019年12月4日 下午4:25:34
  * @version 1.0.0
  */
-@Service
+@Service("setRoleService")
 public class SetRoleServiceImpl implements SetRoleService {
 
 	@Autowired

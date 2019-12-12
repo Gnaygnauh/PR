@@ -1,19 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.hy</groupId>
-  <artifactId>PR</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>PR-web</module>
-  	<module>PR-service</module>
-  	<module>PR-model</module>
-  	<module>PR-mapper</module>
-  	<module>PR-commons</module>
-  </modules>
-  <!-- 版本管理 -->
-  <properties>
-  		<spring.version>4.2.4.RELEASE</spring.version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hy</groupId>
+	<artifactId>PR</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>PR-web</module>
+		<module>PR-service</module>
+		<module>PR-model</module>
+		<module>PR-mapper</module>
+		<module>PR-commons</module>
+	</modules>
+	<!-- 版本管理 -->
+	<properties>
+		<spring.version>4.2.4.RELEASE</spring.version>
 		<slf4j.version>1.7.7</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 		<json-lib.version>2.4</json-lib.version>
@@ -21,11 +23,13 @@
 		<fastjson.version>1.2.35</fastjson.version>
 		<gson.version>2.2.4</gson.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>
+		<spring-redis>1.6.0.RELEASE</spring-redis>
+		<jredis-version>2.7.3</jredis-version>
 		<!--编译级别 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  <dependencies>
-  		<!--spring核心包 -->
+	</properties>
+	<dependencies>
+		<!--spring核心包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -168,5 +172,17 @@
 			<artifactId>spring-messaging</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-  </dependencies>
+		<!--Spring redis 缓存 -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>${spring-redis}</version>
+		</dependency>
+		<!--redis 客户端 -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${jredis-version}</version>
+		</dependency>
+	</dependencies>
 </project>
